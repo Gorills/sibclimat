@@ -25,7 +25,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+                SibClimat
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -42,9 +42,8 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="{{ route('admin.index') }}">Dashboard</a>
                         <a class="dropdown-item" href="{{ route('admin.stock.index') }}">Акции</a>
-                        <a class="dropdown-item" href="#">Новости</a>
-
-                        <a class="dropdown-item" href="#">Работы</a>
+                        <a class="dropdown-item" href="{{ route('admin.event.index') }}">Новости</a>
+                        <a class="dropdown-item" href="{{ route('admin.work.index') }}">Работы</a>
                         <a class="dropdown-item" href="#">Товары</a>
                     </div>
                 </div>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
 use App\Stock;
+use App\Work;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -11,7 +13,9 @@ class IndexController extends Controller
 
         return view('index', [
 
-            'stocks' =>Stock::get()
+            'stocks' =>Stock::all(),
+            'events' =>Event::all(),
+            'works' =>Work::all()
 
 
         ]);
