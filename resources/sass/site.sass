@@ -1,5 +1,6 @@
 @import "vars"
 @import "mixin"
+@import "toggle"
 
 body
     margin: 0
@@ -7,7 +8,8 @@ body
     font-size: 15px
     color: #333
     line-height: 1.6
-    font-family: 'Istok Web', sans-serif
+    font-family: 'Roboto', sans-serif
+    position: relative
 
 *,
 *:before,
@@ -20,17 +22,281 @@ h1, h2, h3, h4, h5, h6, p
 
 .container
     width: 100%
-    max-width: 1140px
+    max-width: 1200px
     margin: 0 auto
     padding: 0 15px
 
 
+// btn
+.btn
+    display: inline-block
+    text-transform: uppercase
+    color: #ffffff
+    padding: 10px 25px
+    text-decoration: none
+    transition: $transition
+    &__accent
+        background-color: $color-hover
+        &:hover
+            background-color: #bb1319
 
 
 
+// Header
+.header
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    width: 100%
+    margin: 15px auto 0
+    z-index: 2
+
+    // header__inner
+    &__inner
+        width: 100%
+        margin: 0 auto
+        border-bottom: $border
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding-bottom: 5px
+    //  header__logo-link
+    &__logo-link
+        display: block
+
+    // header__logo
+    &__logo
+        height: 40px
+    // header__nav
+    &__nav
+        display: flex
+        justify-content: start
+        align-items: center
+    // header__link
+    &__link
+        text-decoration: none
+        color: #fff
+        text-transform: uppercase
+        font-size: 15px
+        letter-spacing: 0.45px
+        font-weight: 500
+        position: relative
+        &::after
+            content: ''
+            position: absolute
+            width: 0
+            height: 3px
+            background-color: $color-hover
+            left: 0
+            top: 45px
+            transition: $transition
+        &:hover::after
+            width: 100%
+    &__link + &__link
+        margin-left: 25px
+        transition: $transition
+    // header__social
+    &__social
+        display: flex
+        align-items: center
+    // header__social-item
+    &__social-item
+        display: flex
+        align-items: center
+    &__social-item + &__social-item
+        margin-left: 15px
+    // header__social-icon
+    &__social-icon
+        width: 40px
+        height: 40px
+        border-radius: 100%
+        display: flex
+        align-items: center
+        justify-content: center
+        color: #fff
+        text-decoration: none
+        i
+            padding-top: 3px
+
+    // header__social-label
+    &__social-label
+        font-size: 11px
+        color: $color-gray
+        margin-left: 5px
+
+.social-icon-accent
+    background-color: $color-hover-alter
+.social-icon-alter
+    background-color: $color-hover
+
+// header-bottom
+.header-bottom
+    background-color: #333
+
+    height: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    position: absolute
+    top: 66px
+    z-index: 10
+    width: 100%
+    max-width: 1170px
+    transition: $transition
+    &_active
+        height: 350px
+        padding: 20px 40px
 
 
 
+// slider
+.slider
+    width: 100%
+    margin: 0 auto
 
+    // slider__bcg
+    &__bcg
+        width: 100%
+        height: 100vh
+        min-height: 600px
+        position: relative
+        overflow: hidden
+        z-index: 1
+        background-color: #000
+        display: flex
+        align-items: center
+    // slider__image
+    &__image
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+        width: 100%
+        height: 100vh
+        min-height: 600px
+        object-fit: cover
+        opacity: 70%
+        z-index: 2
+    // slider__inner
+    &__inner
+        color: #fff
+        position: absolute
+        top: 50%
+        left: 50%
+        width: 100%
+        max-width: 1170px
+        padding: 60px 15px
+        transform: translate(-50%,-50%)
+        background-color: rgba(68, 68, 68, 0.7)
+        z-index: 999
+        text-align: center
+    // slider__title
+    &__title
+        font-weight: 300
+        font-size: 48px
+        margin-bottom: 40px
+        text-align: center
+    // slider__text
+    &__text
+        margin-bottom: 40px
+        text-align: center
+
+    // slider__btn
+    &__btn
+
+        margin: 0 auto
+
+// catalog
+.catalog
+    width: 100%
+    margin: 0 auto
+    background-color: $background-color-light
+    // catalog__inner
+    &__inner
+        padding: 40px 0
+    // catalog__title
+    &__title
+        font-size: 36px
+        font-weight: 500
+        margin-bottom: 40px
+    // catalog__grid
+    &__grid
+        display: grid
+        grid-template-columns: repeat(4, 1fr)
+        grid-gap: 20px
+    // catalog__item
+    &__item
+        display: flex
+        flex-direction: column
+        color: #333
+        text-decoration: none
+        background-color: #f9f9f9
+        transition: $transition
+        &:hover
+            box-shadow: 0 0 10px rgba(0,.5,.5,0.3)
+    // catalog__img-block
+    &__img-block
+        width: 100%
+        height: 250px
+        position: relative
+        overflow: hidden
+        margin-bottom: 15px
+
+    // catalog__img
+    &__img
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+        width: 100%
+        height: 250px
+        object-fit: cover
+    // catalog__text-block
+    &__text-block
+        padding: 15px
+        text-align: center
+        background-color: #fff
+    // catalog__item-title
+    &__item-title
+        margin-bottom: 15px
+        text-align: center
+        text-transform: uppercase
+
+    // catalog__item-text
+    &__item-text
+        margin-bottom: 15px
+        text-align: start
+
+    // catalog__btn
+    &__btn
+        margin: 0 auto
+
+
+// section
+.section
+    width: 100%
+    margin: 0 auto
+    // section__inner
+    &__inner
+        width: 100%
+        padding: $section-padding
+    // section__titile
+    &__titile
+        margin-bottom: $section-padding-bottom
+    // section__text
+    &__text
+        margin-bottom: $section-padding-bottom
+
+
+    // section__img
+    &__img
+        display: grid
+        grid-template-columns: repeat(4, 1fr)
+        grid-gap: 20px
+
+    &__img img
+        max-width: 350px
+        width: 100%
 
 @import "media"
