@@ -16,6 +16,8 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware' => ['auth']]
 
     Route::get('/', 'DashboardController@dashboard')->name('admin.index');
     Route::resource('/stock', 'StockController', ['as'=>'admin']);
+    Route::resource('/event', 'EventController', ['as'=>'admin']);
+    Route::resource('/work', 'WorkController', ['as'=>'admin']);
 
 });
 
