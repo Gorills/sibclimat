@@ -23,6 +23,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if (preg_match("/^\/(public)|(public\/index.php)/",\Request::getBaseUrl()) ) {
+
+            $newUrl = str_replace(\Request::getBaseUrl(), '', \Request::getUri());
+            header('Location: '.$newUrl, true, 301);
+            exit();
+
+        }
     }
 }
