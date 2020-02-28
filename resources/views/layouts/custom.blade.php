@@ -38,10 +38,10 @@
                 <img src="{{ asset('images/001.png') }}" alt="" class="header__logo">
             </a>
             <nav class="header__nav">
-                <a href="" class="header__link">О компании</a>
-                <a href="" class="header__link">Каталог</a>
-                <a href="" class="header__link">Наши работы</a>
-                <a href="" class="header__link">Контакты</a>
+                <a href="{{url('/#about')}}" class="header__link">О компании</a>
+                <a href="{{url('/#catalog')}}" class="header__link">Каталог</a>
+                <a href="{{url('/works')}}" class="header__link">Наши работы</a>
+                <a href="{{url('/contacts')}}" class="header__link">Контакты</a>
             </nav>
             <div class="header__social">
 
