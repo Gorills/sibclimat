@@ -25,8 +25,8 @@
                     <form onsubmit="if(confirm('Удалить?')){ return true }else{ return false}" action="{{ route('admin.stock.destroy', $stock) }}" method="post">
                         <input type="hidden" name="_method" value="DELETE">
                         {{ csrf_field() }}
-                        <a href="{{ URL::to('admin/stock/' . $stock->id . "/edit") }}"><i class="fas fa-pencil-alt mr-3"></i></a>
-                        <button type="submit" class="btn"><i class="far fa-trash-alt"></i></button>
+                        <a href="{{ route('admin.stock.edit', $stock) }}" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                        <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                     </form>
                 </td>
             </tr>
@@ -69,8 +69,8 @@
                     <form onsubmit="if(confirm('Удалить?')){ return true }else{ return false}" action="{{ route('admin.event.destroy', $event) }}" method="post">
                         <input type="hidden" name="_method" value="DELETE">
                         {{ csrf_field() }}
-                        <a href="{{ URL::to('admin/event/' . $event->id . "/edit") }}"><i class="fas fa-pencil-alt mr-3"></i></a>
-                        <button type="submit" class="btn"><i class="far fa-trash-alt"></i></button>
+                        <a href="{{ route('admin.event.edit', $event) }}" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                        <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                     </form>
                 </td>
             </tr>
@@ -113,11 +113,11 @@
                 <td>{{ $work->title }}</td>
 
                 <td class="text-right">
-                    <form onsubmit="if(confirm('Удалить?')){ return true }else{ return false}" action="{{ route('admin.work.destroy', $event) }}" method="post">
+                    <form onsubmit="if(confirm('Удалить?')){ return true }else{ return false}" action="{{ route('admin.work.destroy', $work) }}" method="post">
                         <input type="hidden" name="_method" value="DELETE">
                         {{ csrf_field() }}
-                        <a href="{{ URL::to('admin/work/' . $work->id . "/edit") }}"><i class="fas fa-pencil-alt mr-3"></i></a>
-                        <button type="submit" class="btn"><i class="far fa-trash-alt"></i></button>
+                        <a href="{{ route('admin.work.edit', $work) }}" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                        <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                     </form>
                 </td>
             </tr>
