@@ -72,7 +72,7 @@ class WorkController extends Controller
      */
     public function edit(Work $work)
     {
-        return view('admin.events.edit', [
+        return view('admin.works.edit', [
             'work'=>$work,
             'works'=>Work::get()
 

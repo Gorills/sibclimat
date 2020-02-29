@@ -44,8 +44,8 @@
                         <form onsubmit="if(confirm('Удалить?')){ return true }else{ return false}" action="{{ route('admin.stock.destroy', $stock) }}" method="post">
                             <input type="hidden" name="_method" value="DELETE">
                             {{ csrf_field() }}
-                            <a href="{{ URL::to('admin/stock/' . $stock->id . "/edit") }}"><i class="fas fa-pencil-alt mr-3"></i></a>
-                            <button type="submit" class="btn"><i class="far fa-trash-alt"></i></button>
+                            <a href="{{ route('admin.stock.edit', $stock) }}" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                            <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                         </form>
 
 
