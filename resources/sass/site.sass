@@ -289,14 +289,61 @@ h1, h2, h3, h4, h5, h6, p
         margin-bottom: $section-padding-bottom
 
 
-    // section__img
-    &__img
-        display: grid
-        grid-template-columns: repeat(4, 1fr)
-        grid-gap: 20px
 
-    &__img img
-        max-width: 350px
+// works
+.works
+    width: 100%
+    margin: 0 auto
+    // works__title
+    &__title
+        margin-bottom: 20px
+    // works__grid
+    &__grid
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        grid-gap: 20px
+    // works__item
+    &__item
+
+
+
+    // works__img-wrapper
+    &__img-wrapper
+        height: 250px
         width: 100%
+        position: relative
+        overflow: hidden
+        margin-bottom: 20px
+    // works__img
+    &__img
+        position: absolute
+
+        height: 250px
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+
+    // works__item-title
+    &__item-title
+        margin-bottom: 20px
+    // works__item-text
+    &__item-text
+
+
+
+
+
+
+// footer
+.footer
+    width: 100%
+    margin: 0 auto
+    background-color: #333
+    // footer__inner
+    &__inner
+        padding: 40px
+
+
+
 
 @import "media"

@@ -387,15 +387,49 @@ p {
   margin-bottom: 40px;
 }
 
-.section__img {
+.works {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.works__title {
+  margin-bottom: 20px;
+}
+
+.works__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
 }
 
-.section__img img {
-  max-width: 350px;
+.works__img-wrapper {
+  height: 250px;
   width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.works__img {
+  position: absolute;
+  height: 250px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.works__item-title {
+  margin-bottom: 20px;
+}
+
+.footer {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #333;
+}
+
+.footer__inner {
+  padding: 40px;
 }
 
 /*==========  Desktop First Method  ==========*/

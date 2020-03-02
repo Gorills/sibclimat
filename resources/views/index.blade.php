@@ -13,8 +13,10 @@
 
 @section('content')
 
+
+<div class="slick">
     @foreach($stocks as $stock)
-        <section class="slider">
+        <div class="slider">
             <div class="slider__bcg">
                 <img class="slider__image" src="{{ Storage::url($stock->image) }}" alt="">
                 <div class="slider__inner">
@@ -23,10 +25,14 @@
                     <a href="#" class="slider__btn btn btn__accent">Подробнее</a>
                 </div>
             </div>
-        </section>
+        </div>
 
 
     @endforeach
+</div>
+
+
+
 
 
     <section class="catalog" id="catalog">
@@ -92,11 +98,25 @@
                 <p class="section__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis culpa doloremque error eveniet expedita explicabo facere id, ipsa magnam minus molestias natus numquam officia provident recusandae suscipit, tempora totam voluptas!</p>
                 <p class="section__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis culpa doloremque error eveniet expedita explicabo facere id, ipsa magnam minus molestias natus numquam officia provident recusandae suscipit, tempora totam voluptas!</p>
 
-                <div class="section__img">
-                    <img src="{{ asset('images/uslugi/slide-1.jpg') }}" alt="">
-                    <img src="{{ asset('images/uslugi/slide-1.jpg') }}" alt="">
-                    <img src="{{ asset('images/uslugi/slide-1.jpg') }}" alt="">
-                    <img src="{{ asset('images/uslugi/slide-1.jpg') }}" alt="">
+                <div class="works" id="works">
+                    <h3 class="works__title">Наши работы</h3>
+
+                    <div class="works__grid">
+
+
+                    @foreach($works as $work)
+                        <div class="works__item">
+                            <div class="works__img-wrapper">
+                                <img class="works__img" src="{{ Storage::url($work->image) }}" alt="">
+                            </div>
+                            <h4 class="works__item-title">{{ $work->title }}</h4>
+                            <p class="works__item-text">{{ $work->description }}</p>
+                        </div>
+                    @endforeach
+
+
+                    </div>
+
                 </div>
 
             </div>

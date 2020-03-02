@@ -2625,7 +2625,7 @@ __webpack_require__.r(__webpack_exports__);
     NEXT: 'carousel-item-next',
     PREV: 'carousel-item-prev',
     ITEM: 'carousel-item',
-    POINTER_EVENT: 'pointer-events'
+    POINTER_EVENT: 'pointer-event'
   };
   var Selector$2 = {
     ACTIVE: '.active',
@@ -2848,7 +2848,7 @@ __webpack_require__.r(__webpack_exports__);
           // part of the mouse compatibility events on first tap - the carousel
           // would stop cycling until user tapped out of it;
           // here, we listen for touchend, explicitly pause the carousel
-          // (as if it's the second time we tap on it, mouseenter compat events
+          // (as if it's the second time we tap on it, mouseenter compat event
           // is NOT fired) and after a timeout (to allow for mouse compatibility
           // events to fire) we explicitly restart cycling
           _this3.pause();
@@ -3688,7 +3688,7 @@ __webpack_require__.r(__webpack_exports__);
         this._popper = new Popper(referenceElement, this._menu, this._getPopperConfig());
       } // If this is a touch-enabled device we add extra
       // empty mouseover listeners to the body's immediate children;
-      // only needed because of broken events delegation on iOS
+      // only needed because of broken event delegation on iOS
       // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
 
 
@@ -4234,7 +4234,7 @@ __webpack_require__.r(__webpack_exports__);
       /**
        * `document` has 2 events `Event.FOCUSIN` and `Event.CLICK_DATA_API`
        * Do not move `document` in `htmlElements` array
-       * It will remove `Event.CLICK_DATA_API` events that should remain
+       * It will remove `Event.CLICK_DATA_API` event that should remain
        */
 
       $(document).off(Event$5.FOCUSIN);
@@ -5007,7 +5007,7 @@ __webpack_require__.r(__webpack_exports__);
         this._popper = new Popper(this.element, tip, this._getPopperConfig(attachment));
         $(tip).addClass(ClassName$6.SHOW); // If this is a touch-enabled device we add extra
         // empty mouseover listeners to the body's immediate children;
-        // only needed because of broken events delegation on iOS
+        // only needed because of broken event delegation on iOS
         // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
 
         if ('ontouchstart' in document.documentElement) {
@@ -9701,7 +9701,7 @@ function createOptions( options ) {
  *	options: an optional list of space-separated options that will change how
  *			the callback list behaves or a more traditional option object
  *
- * By default a callback list will act like an events callback list and can be
+ * By default a callback list will act like an event callback list and can be
  * "fired" multiple times.
  *
  * Possible options:
@@ -10350,7 +10350,7 @@ jQuery.extend( {
 	isReady: false,
 
 	// A counter to track how many items to wait for before
-	// the ready events fires. See #6781
+	// the ready event fires. See #6781
 	readyWait: 1,
 
 	// Handle when the DOM is ready
@@ -10364,7 +10364,7 @@ jQuery.extend( {
 		// Remember that the DOM is ready
 		jQuery.isReady = true;
 
-		// If a normal DOM Ready events fired, decrement, and wait if need be
+		// If a normal DOM Ready event fired, decrement, and wait if need be
 		if ( wait !== true && --jQuery.readyWait > 0 ) {
 			return;
 		}
@@ -10376,7 +10376,7 @@ jQuery.extend( {
 
 jQuery.ready.then = readyList.then;
 
-// The ready events handler and self cleanup method
+// The ready event handler and self cleanup method
 function completed() {
 	document.removeEventListener( "DOMContentLoaded", completed );
 	window.removeEventListener( "load", completed );
@@ -10384,7 +10384,7 @@ function completed() {
 }
 
 // Catch cases where $(document).ready() is called
-// after the browser events has already occurred.
+// after the browser event has already occurred.
 // Support: IE <=9 - 10 only
 // Older IE sometimes signals "interactive" too soon
 if ( document.readyState === "complete" ||
@@ -10395,7 +10395,7 @@ if ( document.readyState === "complete" ||
 
 } else {
 
-	// Use the handy events callback
+	// Use the handy event callback
 	document.addEventListener( "DOMContentLoaded", completed );
 
 	// A fallback to window.onload, that will always work
@@ -11452,7 +11452,7 @@ function on( elem, types, selector, data, fn, one ) {
 		origFn = fn;
 		fn = function( event ) {
 
-			// Can use an empty set, since events contains the info
+			// Can use an empty set, since event contains the info
 			jQuery().off( event );
 			return origFn.apply( this, arguments );
 		};
@@ -11503,15 +11503,15 @@ jQuery.event = {
 			handler.guid = jQuery.guid++;
 		}
 
-		// Init the element's events structure and main handler, if this is the first
+		// Init the element's event structure and main handler, if this is the first
 		if ( !( events = elemData.events ) ) {
 			events = elemData.events = {};
 		}
 		if ( !( eventHandle = elemData.handle ) ) {
 			eventHandle = elemData.handle = function( e ) {
 
-				// Discard the second events of a jQuery.events.trigger() and
-				// when an events is called after a page has unloaded
+				// Discard the second event of a jQuery.event.trigger() and
+				// when an event is called after a page has unloaded
 				return typeof jQuery !== "undefined" && jQuery.event.triggered !== e.type ?
 					jQuery.event.dispatch.apply( elem, arguments ) : undefined;
 			};
@@ -11530,16 +11530,16 @@ jQuery.event = {
 				continue;
 			}
 
-			// If events changes its type, use the special events handlers for the changed type
+			// If event changes its type, use the special event handlers for the changed type
 			special = jQuery.event.special[ type ] || {};
 
-			// If selector defined, determine special events api type, otherwise given type
+			// If selector defined, determine special event api type, otherwise given type
 			type = ( selector ? special.delegateType : special.bindType ) || type;
 
 			// Update special based on newly reset type
 			special = jQuery.event.special[ type ] || {};
 
-			// handleObj is passed to all events handlers
+			// handleObj is passed to all event handlers
 			handleObj = jQuery.extend( {
 				type: type,
 				origType: origType,
@@ -11551,7 +11551,7 @@ jQuery.event = {
 				namespace: namespaces.join( "." )
 			}, handleObjIn );
 
-			// Init the events handler queue if we're the first
+			// Init the event handler queue if we're the first
 			if ( !( handlers = events[ type ] ) ) {
 				handlers = events[ type ] = [];
 				handlers.delegateCount = 0;
@@ -11581,13 +11581,13 @@ jQuery.event = {
 				handlers.push( handleObj );
 			}
 
-			// Keep track of which events have ever been used, for events optimization
+			// Keep track of which events have ever been used, for event optimization
 			jQuery.event.global[ type ] = true;
 		}
 
 	},
 
-	// Detach an events or set of events from an element
+	// Detach an event or set of events from an element
 	remove: function( elem, types, handler, selector, mappedTypes ) {
 
 		var j, origCount, tmp,
@@ -11642,8 +11642,8 @@ jQuery.event = {
 				}
 			}
 
-			// Remove generic events handler if we removed something and no more handlers exist
-			// (avoids potential for endless recursion during removal of special events handlers)
+			// Remove generic event handler if we removed something and no more handlers exist
+			// (avoids potential for endless recursion during removal of special event handlers)
 			if ( origCount && !handlers.length ) {
 				if ( !special.teardown ||
 					special.teardown.call( elem, namespaces, elemData.handle ) === false ) {
@@ -11663,7 +11663,7 @@ jQuery.event = {
 
 	dispatch: function( nativeEvent ) {
 
-		// Make a writable jQuery.Event from the native events object
+		// Make a writable jQuery.Event from the native event object
 		var event = jQuery.event.fix( nativeEvent );
 
 		var i, j, ret, matched, handleObj, handlerQueue,
@@ -11671,7 +11671,7 @@ jQuery.event = {
 			handlers = ( dataPriv.get( this, "events" ) || {} )[ event.type ] || [],
 			special = jQuery.event.special[ event.type ] || {};
 
-		// Use the fix-ed jQuery.Event rather than the (read-only) native events
+		// Use the fix-ed jQuery.Event rather than the (read-only) native event
 		args[ 0 ] = event;
 
 		for ( i = 1; i < arguments.length; i++ ) {
@@ -11697,8 +11697,8 @@ jQuery.event = {
 			while ( ( handleObj = matched.handlers[ j++ ] ) &&
 				!event.isImmediatePropagationStopped() ) {
 
-				// If the events is namespaced, then each handler is only invoked if it is
-				// specially universal or its namespaces are a superset of the events's.
+				// If the event is namespaced, then each handler is only invoked if it is
+				// specially universal or its namespaces are a superset of the event's.
 				if ( !event.rnamespace || handleObj.namespace === false ||
 					event.rnamespace.test( handleObj.namespace ) ) {
 
@@ -11826,7 +11826,7 @@ jQuery.event = {
 		},
 		click: {
 
-			// Utilize native events to ensure correct state for checkable inputs
+			// Utilize native event to ensure correct state for checkable inputs
 			setup: function( data ) {
 
 				// For mutual compressibility with _default, replace `this` access with a local var.
@@ -11857,12 +11857,12 @@ jQuery.event = {
 					leverageNative( el, "click" );
 				}
 
-				// Return non-false to allow normal events-path propagation
+				// Return non-false to allow normal event-path propagation
 				return true;
 			},
 
 			// For cross-browser consistency, suppress native .click() on links
-			// Also prevent it if we're currently inside a leveraged native-events stack
+			// Also prevent it if we're currently inside a leveraged native-event stack
 			_default: function( event ) {
 				var target = event.target;
 				return rcheckableType.test( target.type ) &&
@@ -11885,13 +11885,13 @@ jQuery.event = {
 	}
 };
 
-// Ensure the presence of an events listener that handles manually-triggered
+// Ensure the presence of an event listener that handles manually-triggered
 // synthetic events by interrupting progress until reinvoked in response to
 // *native* events that it fires directly, ensuring that state changes have
 // already occurred before other listeners are invoked.
 function leverageNative( el, type, expectSync ) {
 
-	// Missing expectSync indicates a trigger call, which must force setup through jQuery.events.add
+	// Missing expectSync indicates a trigger call, which must force setup through jQuery.event.add
 	if ( !expectSync ) {
 		if ( dataPriv.get( el, type ) === undefined ) {
 			jQuery.event.add( el, type, returnTrue );
@@ -11899,7 +11899,7 @@ function leverageNative( el, type, expectSync ) {
 		return;
 	}
 
-	// Register the controller as a special universal handler for all events namespaces
+	// Register the controller as a special universal handler for all event namespaces
 	dataPriv.set( el, type, false );
 	jQuery.event.add( el, type, {
 		namespace: false,
@@ -11909,18 +11909,18 @@ function leverageNative( el, type, expectSync ) {
 
 			if ( ( event.isTrigger & 1 ) && this[ type ] ) {
 
-				// Interrupt processing of the outer synthetic .trigger()ed events
+				// Interrupt processing of the outer synthetic .trigger()ed event
 				// Saved data should be false in such cases, but might be a leftover capture object
 				// from an async native handler (gh-4350)
 				if ( !saved.length ) {
 
-					// Store arguments for use when handling the inner native events
-					// There will always be at least one argument (an events object), so this array
+					// Store arguments for use when handling the inner native event
+					// There will always be at least one argument (an event object), so this array
 					// will not be confused with a leftover capture object.
 					saved = slice.call( arguments );
 					dataPriv.set( this, type, saved );
 
-					// Trigger the native events and capture its result
+					// Trigger the native event and capture its result
 					// Support: IE <=9 - 11+
 					// focus() and blur() are asynchronous
 					notAsync = expectSync( this, type );
@@ -11933,15 +11933,15 @@ function leverageNative( el, type, expectSync ) {
 					}
 					if ( saved !== result ) {
 
-						// Cancel the outer synthetic events
+						// Cancel the outer synthetic event
 						event.stopImmediatePropagation();
 						event.preventDefault();
 						return result.value;
 					}
 
-				// If this is an inner synthetic events for an events with a bubbling surrogate
+				// If this is an inner synthetic event for an event with a bubbling surrogate
 				// (focus or blur), assume that the surrogate already propagated from triggering the
-				// native events and prevent that from happening again here.
+				// native event and prevent that from happening again here.
 				// This technically gets the ordering wrong w.r.t. to `.trigger()` (in which the
 				// bubbling surrogate propagates *after* the non-bubbling base), but that seems
 				// less bad than duplication.
@@ -11949,8 +11949,8 @@ function leverageNative( el, type, expectSync ) {
 					event.stopPropagation();
 				}
 
-			// If this is a native events triggered above, everything is now in order
-			// Fire an inner synthetic events with the original arguments
+			// If this is a native event triggered above, everything is now in order
+			// Fire an inner synthetic event with the original arguments
 			} else if ( saved.length ) {
 
 				// ...and capture the result
@@ -11965,7 +11965,7 @@ function leverageNative( el, type, expectSync ) {
 					)
 				} );
 
-				// Abort handling of the native events
+				// Abort handling of the native event
 				event.stopImmediatePropagation();
 			}
 		}
@@ -12017,12 +12017,12 @@ jQuery.Event = function( src, props ) {
 		this.type = src;
 	}
 
-	// Put explicitly provided properties onto the events object
+	// Put explicitly provided properties onto the event object
 	if ( props ) {
 		jQuery.extend( this, props );
 	}
 
-	// Create a timestamp if incoming events doesn't have one
+	// Create a timestamp if incoming event doesn't have one
 	this.timeStamp = src && src.timeStamp || Date.now();
 
 	// Mark it as fixed
@@ -12069,7 +12069,7 @@ jQuery.Event.prototype = {
 	}
 };
 
-// Includes all common events props including KeyEvent and MouseEvent specific props
+// Includes all common event props including KeyEvent and MouseEvent specific props
 jQuery.each( {
 	altKey: true,
 	bubbles: true,
@@ -12134,7 +12134,7 @@ jQuery.each( {
 jQuery.each( { focus: "focusin", blur: "focusout" }, function( type, delegateType ) {
 	jQuery.event.special[ type ] = {
 
-		// Utilize native events if possible so blur/focus sequence is correct
+		// Utilize native event if possible so blur/focus sequence is correct
 		setup: function() {
 
 			// Claim the first handler
@@ -12150,7 +12150,7 @@ jQuery.each( { focus: "focusin", blur: "focusout" }, function( type, delegateTyp
 			// Force setup before trigger
 			leverageNative( this, type );
 
-			// Return non-false to allow normal events-path propagation
+			// Return non-false to allow normal event-path propagation
 			return true;
 		},
 
@@ -12158,8 +12158,8 @@ jQuery.each( { focus: "focusin", blur: "focusout" }, function( type, delegateTyp
 	};
 } );
 
-// Create mouseenter/leave events using mouseover/out and events-time checks
-// so that events delegation works in jQuery.
+// Create mouseenter/leave events using mouseover/out and event-time checks
+// so that event delegation works in jQuery.
 // Do the same for pointerenter/pointerleave and pointerover/pointerout
 //
 // Support: Safari 7 only
@@ -12206,7 +12206,7 @@ jQuery.fn.extend( {
 		var handleObj, type;
 		if ( types && types.preventDefault && types.handleObj ) {
 
-			// ( events )  dispatched jQuery.Event
+			// ( event )  dispatched jQuery.Event
 			handleObj = types.handleObj;
 			jQuery( types.delegateTarget ).off(
 				handleObj.namespace ?
@@ -12506,7 +12506,7 @@ jQuery.extend( {
 							if ( special[ type ] ) {
 								jQuery.event.remove( elem, type );
 
-							// This is a shortcut to avoid jQuery.events.remove's overhead
+							// This is a shortcut to avoid jQuery.event.remove's overhead
 							} else {
 								jQuery.removeEvent( elem, type, data.handle );
 							}
@@ -14873,14 +14873,14 @@ jQuery.extend( jQuery.event, {
 
 		if ( type.indexOf( "." ) > -1 ) {
 
-			// Namespaced trigger; create a regexp to match events type in handle()
+			// Namespaced trigger; create a regexp to match event type in handle()
 			namespaces = type.split( "." );
 			type = namespaces.shift();
 			namespaces.sort();
 		}
 		ontype = type.indexOf( ":" ) < 0 && "on" + type;
 
-		// Caller can pass in a jQuery.Event object, Object, or just an events type string
+		// Caller can pass in a jQuery.Event object, Object, or just an event type string
 		event = event[ jQuery.expando ] ?
 			event :
 			new jQuery.Event( type, typeof event === "object" && event );
@@ -14892,13 +14892,13 @@ jQuery.extend( jQuery.event, {
 			new RegExp( "(^|\\.)" + namespaces.join( "\\.(?:.*\\.|)" ) + "(\\.|$)" ) :
 			null;
 
-		// Clean up the events in case it is being reused
+		// Clean up the event in case it is being reused
 		event.result = undefined;
 		if ( !event.target ) {
 			event.target = elem;
 		}
 
-		// Clone any incoming data and prepend the events, creating the handler arg list
+		// Clone any incoming data and prepend the event, creating the handler arg list
 		data = data == null ?
 			[ event ] :
 			jQuery.makeArray( data, [ event ] );
@@ -14909,7 +14909,7 @@ jQuery.extend( jQuery.event, {
 			return;
 		}
 
-		// Determine events propagation path in advance, per W3C events spec (#9951)
+		// Determine event propagation path in advance, per W3C events spec (#9951)
 		// Bubble up to document, then to window; watch for a global ownerDocument var (#9724)
 		if ( !onlyHandlers && !special.noBubble && !isWindow( elem ) ) {
 
@@ -14928,7 +14928,7 @@ jQuery.extend( jQuery.event, {
 			}
 		}
 
-		// Fire handlers on the events path
+		// Fire handlers on the event path
 		i = 0;
 		while ( ( cur = eventPath[ i++ ] ) && !event.isPropagationStopped() ) {
 			lastElement = cur;
@@ -14961,18 +14961,18 @@ jQuery.extend( jQuery.event, {
 				special._default.apply( eventPath.pop(), data ) === false ) &&
 				acceptData( elem ) ) {
 
-				// Call a native DOM method on the target with the same name as the events.
+				// Call a native DOM method on the target with the same name as the event.
 				// Don't do default actions on window, that's where global variables be (#6170)
 				if ( ontype && isFunction( elem[ type ] ) && !isWindow( elem ) ) {
 
-					// Don't re-trigger an onFOO events when we call its FOO() method
+					// Don't re-trigger an onFOO event when we call its FOO() method
 					tmp = elem[ ontype ];
 
 					if ( tmp ) {
 						elem[ ontype ] = null;
 					}
 
-					// Prevent re-triggering of the same events, since we already bubbled it above
+					// Prevent re-triggering of the same event, since we already bubbled it above
 					jQuery.event.triggered = type;
 
 					if ( event.isPropagationStopped() ) {
@@ -14997,7 +14997,7 @@ jQuery.extend( jQuery.event, {
 		return event.result;
 	},
 
-	// Piggyback on a donor events to simulate a different one
+	// Piggyback on a donor event to simulate a different one
 	// Used only for `focus(in | out)` events
 	simulate: function( type, elem, event ) {
 		var e = jQuery.extend(
@@ -15782,7 +15782,7 @@ jQuery.extend( {
 		}
 
 		// We can fire global events as of now if asked to
-		// Don't fire events if jQuery.events is undefined in an AMD-usage scenario (#15118)
+		// Don't fire events if jQuery.event is undefined in an AMD-usage scenario (#15118)
 		fireGlobals = jQuery.event && s.global;
 
 		// Watch for a new set of requests
@@ -15884,7 +15884,7 @@ jQuery.extend( {
 		} else {
 			jqXHR.readyState = 1;
 
-			// Send global events
+			// Send global event
 			if ( fireGlobals ) {
 				globalEventContext.trigger( "ajaxSend", [ jqXHR, s ] );
 			}
@@ -16520,7 +16520,7 @@ jQuery.parseHTML = function( data, context, keepScripts ) {
 
 	if ( !context ) {
 
-		// Stop scripts or inline events handlers from being executed immediately
+		// Stop scripts or inline event handlers from being executed immediately
 		// by using document.implementation
 		if ( support.createHTMLDocument ) {
 			context = document.implementation.createHTMLDocument( "" );
@@ -16911,7 +16911,7 @@ jQuery.each( ( "blur focus focusin focusout resize scroll click dblclick " +
 	"change select submit keydown keypress keyup contextmenu" ).split( " " ),
 	function( i, name ) {
 
-	// Handle events binding
+	// Handle event binding
 	jQuery.fn[ name ] = function( data, fn ) {
 		return arguments.length > 0 ?
 			this.on( name, null, data, fn ) :
@@ -27969,7 +27969,7 @@ return jQuery;
      * // Avoid excessively updating the position while scrolling.
      * jQuery(window).on('scroll', _.throttle(updatePosition, 100));
      *
-     * // Invoke `renewToken` when the click events is fired, but not more than once every 5 minutes.
+     * // Invoke `renewToken` when the click event is fired, but not more than once every 5 minutes.
      * var throttled = _.throttle(renewToken, 300000, { 'trailing': false });
      * jQuery(element).on('click', throttled);
      *
@@ -35244,17 +35244,17 @@ function attachToScrollParents(scrollParent, event, callback, scrollParents) {
 }
 
 /**
- * Setup needed events listeners used to update the popper position
+ * Setup needed event listeners used to update the popper position
  * @method
  * @memberof Popper.Utils
  * @private
  */
 function setupEventListeners(reference, options, state, updateBound) {
-  // Resize events listener on window
+  // Resize event listener on window
   state.updateBound = updateBound;
   getWindow(reference).addEventListener('resize', state.updateBound, { passive: true });
 
-  // Scroll events listener on scroll parents
+  // Scroll event listener on scroll parents
   var scrollElement = getScrollParent(reference);
   attachToScrollParents(scrollElement, 'scroll', state.updateBound, state.scrollParents);
   state.scrollElement = scrollElement;
@@ -35276,16 +35276,16 @@ function enableEventListeners() {
 }
 
 /**
- * Remove events listeners used to update the popper position
+ * Remove event listeners used to update the popper position
  * @method
  * @memberof Popper.Utils
  * @private
  */
 function removeEventListeners(reference, state) {
-  // Remove resize events listener on window
+  // Remove resize event listener on window
   getWindow(reference).removeEventListener('resize', state.updateBound);
 
-  // Remove scroll events listener on scroll parents
+  // Remove scroll event listener on scroll parents
   state.scrollParents.forEach(function (target) {
     target.removeEventListener('scroll', state.updateBound);
   });
@@ -36727,7 +36727,7 @@ var Popper = function () {
 
     var eventsEnabled = this.options.eventsEnabled;
     if (eventsEnabled) {
-      // setup events listeners, they will take care of update the position in specific situations
+      // setup event listeners, they will take care of update the position in specific situations
       this.enableEventListeners();
     }
 
@@ -37120,7 +37120,7 @@ process.umask = function() { return 0; };
     }
 
     function installPostMessageImplementation() {
-        // Installs an events handler on `global` for the `message` events: see
+        // Installs an event handler on `global` for the `message` event: see
         // * https://developer.mozilla.org/en/DOM/window.postMessage
         // * http://www.whatwg.org/specs/web-apps/current-work/multipage/comms.html#crossDocumentMessages
 
@@ -37159,7 +37159,7 @@ process.umask = function() { return 0; };
     function installReadyStateChangeImplementation() {
         var html = doc.documentElement;
         registerImmediate = function(handle) {
-            // Create a <script> element; its readystatechange events will be fired asynchronously once it is inserted
+            // Create a <script> element; its readystatechange event will be fired asynchronously once it is inserted
             // into the document. Do so, thus queuing up the task. Remember to clean up once it's been called.
             var script = doc.createElement("script");
             script.onreadystatechange = function () {
@@ -39367,19 +39367,19 @@ function flushCallbacks () {
 // In 2.5 we used (macro) tasks (in combination with microtasks).
 // However, it has subtle problems when state is changed right before repaint
 // (e.g. #6813, out-in transitions).
-// Also, using (macro) tasks in events handler would cause some weird behaviors
+// Also, using (macro) tasks in event handler would cause some weird behaviors
 // that cannot be circumvented (e.g. #7109, #7153, #7546, #7834, #8109).
 // So we now use microtasks everywhere, again.
 // A major drawback of this tradeoff is that there are some scenarios
 // where microtasks have too high a priority and fire in between supposedly
 // sequential events (e.g. #4521, #6690, which have workarounds)
-// or even between bubbling of the same events (#6566).
+// or even between bubbling of the same event (#6566).
 var timerFunc;
 
 // The nextTick behavior leverages the microtask queue, which can be accessed
 // via either native Promise.then or MutationObserver.
 // MutationObserver has wider support, however it is seriously bugged in
-// UIWebView in iOS >= 9.3.3 when triggered in touch events handlers. It
+// UIWebView in iOS >= 9.3.3 when triggered in touch event handlers. It
 // completely stops working after triggering a few times... so, if native
 // Promise is available, we will use it:
 /* istanbul ignore next, $flow-disable-line */
@@ -39654,7 +39654,7 @@ function updateListeners (
     event = normalizeEvent(name);
     if (isUndef(cur)) {
       warn(
-        "Invalid handler for events \"" + (event.name) + "\": got " + String(cur),
+        "Invalid handler for event \"" + (event.name) + "\": got " + String(cur),
         vm
       );
     } else if (isUndef(old)) {
@@ -40375,7 +40375,7 @@ function bindDynamicKeys (baseObj, values) {
   return baseObj
 }
 
-// helper to dynamically append modifier runtime markers to events names.
+// helper to dynamically append modifier runtime markers to event names.
 // ensure only append when value is already string, otherwise it will be cast
 // to string and cause the type check to miss.
 function prependModifier (value, symbol) {
@@ -40760,7 +40760,7 @@ function mergeHook$1 (f1, f2) {
 }
 
 // transform component v-model info (value and callback) into
-// prop and events handler respectively.
+// prop and event handler respectively.
 function transformModel (options, data) {
   var prop = (options.model && options.model.prop) || 'value';
   var event = (options.model && options.model.event) || 'input'
@@ -41257,7 +41257,7 @@ function eventsMixin (Vue) {
       }
     } else {
       (vm._events[event] || (vm._events[event] = [])).push(fn);
-      // optimize hook:events cost by using a boolean flag marked at registration
+      // optimize hook:event cost by using a boolean flag marked at registration
       // instead of a hash lookup
       if (hookRE.test(event)) {
         vm._hasHookEvent = true;
@@ -41291,7 +41291,7 @@ function eventsMixin (Vue) {
       }
       return vm
     }
-    // specific events
+    // specific event
     var cbs = vm._events[event];
     if (!cbs) {
       return vm
@@ -41331,7 +41331,7 @@ function eventsMixin (Vue) {
     if (cbs) {
       cbs = cbs.length > 1 ? toArray(cbs) : cbs;
       var args = toArray(arguments, 1);
-      var info = "events handler for \"" + event + "\"";
+      var info = "event handler for \"" + event + "\"";
       for (var i = 0, l = cbs.length; i < l; i++) {
         invokeWithErrorHandling(cbs[i], vm, args, vm, info);
       }
@@ -41697,21 +41697,21 @@ function resetSchedulerState () {
   waiting = flushing = false;
 }
 
-// Async edge case #6566 requires saving the timestamp when events listeners are
+// Async edge case #6566 requires saving the timestamp when event listeners are
 // attached. However, calling performance.now() has a perf overhead especially
-// if the page has thousands of events listeners. Instead, we take a timestamp
-// every time the scheduler flushes and use that for all events listeners
+// if the page has thousands of event listeners. Instead, we take a timestamp
+// every time the scheduler flushes and use that for all event listeners
 // attached during that flush.
 var currentFlushTimestamp = 0;
 
-// Async edge case fix requires storing an events listener's attach timestamp.
+// Async edge case fix requires storing an event listener's attach timestamp.
 var getNow = Date.now;
 
-// Determine what events timestamp the browser is using. Annoyingly, the
+// Determine what event timestamp the browser is using. Annoyingly, the
 // timestamp can either be hi-res (relative to page load) or low-res
 // (relative to UNIX epoch), so in order to compare time we have to use the
 // same timestamp type when saving the flush timestamp.
-// All IE versions use low-res events timestamps, and have problematic clock
+// All IE versions use low-res event timestamps, and have problematic clock
 // implementations (#9632)
 if (inBrowser && !isIE) {
   var performance = window.performance;
@@ -41720,9 +41720,9 @@ if (inBrowser && !isIE) {
     typeof performance.now === 'function' &&
     getNow() > document.createEvent('Event').timeStamp
   ) {
-    // if the events timestamp, although evaluated AFTER the Date.now(), is
-    // smaller than it, it means the events is using a hi-res timestamp,
-    // and we need to use the hi-res version for events listener timestamps as
+    // if the event timestamp, although evaluated AFTER the Date.now(), is
+    // smaller than it, it means the event is using a hi-res timestamp,
+    // and we need to use the hi-res version for event listener timestamps as
     // well.
     getNow = function () { return performance.now(); };
   }
@@ -44205,8 +44205,8 @@ function baseSetAttr (el, key, value) {
   if (isFalsyAttrValue(value)) {
     el.removeAttribute(key);
   } else {
-    // #7138: IE10 & 11 fires input events when setting placeholder on
-    // <textarea>... block the first input events and remove the blocker
+    // #7138: IE10 & 11 fires input event when setting placeholder on
+    // <textarea>... block the first input event and remove the blocker
     // immediately.
     /* istanbul ignore if */
     if (
@@ -44429,7 +44429,7 @@ function addDirective (
 function prependModifierMarker (symbol, name, dynamic) {
   return dynamic
     ? ("_p(" + name + ",\"" + symbol + "\")")
-    : symbol + name // mark the events as captured
+    : symbol + name // mark the event as captured
 }
 
 function addHandler (
@@ -44451,7 +44451,7 @@ function addHandler (
   ) {
     warn(
       'passive and prevent can\'t be used together. ' +
-      'Passive handler can\'t prevent default events.',
+      'Passive handler can\'t prevent default event.',
       range
     );
   }
@@ -44748,7 +44748,7 @@ function parseString (chr) {
 
 var warn$1;
 
-// in some cases, the events used has to be determined at runtime
+// in some cases, the event used has to be determined at runtime
 // so we used some reserved tokens during compile.
 var RANGE_TOKEN = '__r';
 var CHECKBOX_RADIO_TOKEN = '__c';
@@ -44825,7 +44825,7 @@ function genCheckboxModel (
   );
   addHandler(el, 'change',
     "var $$a=" + value + "," +
-        '$$el=$events.target,' +
+        '$$el=$event.target,' +
         "$$c=$$el.checked?(" + trueValueBinding + "):(" + falseValueBinding + ");" +
     'if(Array.isArray($$a)){' +
       "var $$v=" + (number ? '_n(' + valueBinding + ')' : valueBinding) + "," +
@@ -44856,11 +44856,11 @@ function genSelect (
 ) {
   var number = modifiers && modifiers.number;
   var selectedVal = "Array.prototype.filter" +
-    ".call($events.target.options,function(o){return o.selected})" +
+    ".call($event.target.options,function(o){return o.selected})" +
     ".map(function(o){var val = \"_value\" in o ? o._value : o.value;" +
     "return " + (number ? '_n(val)' : 'val') + "})";
 
-  var assignment = '$events.target.multiple ? $$selectedVal : $$selectedVal[0]';
+  var assignment = '$event.target.multiple ? $$selectedVal : $$selectedVal[0]';
   var code = "var $$selectedVal = " + selectedVal + ";";
   code = code + " " + (genAssignmentCode(value, assignment));
   addHandler(el, 'change', code, null, true);
@@ -44899,9 +44899,9 @@ function genDefaultModel (
       ? RANGE_TOKEN
       : 'input';
 
-  var valueExpression = '$events.target.value';
+  var valueExpression = '$event.target.value';
   if (trim) {
-    valueExpression = "$events.target.value.trim()";
+    valueExpression = "$event.target.value.trim()";
   }
   if (number) {
     valueExpression = "_n(" + valueExpression + ")";
@@ -44909,7 +44909,7 @@ function genDefaultModel (
 
   var code = genAssignmentCode(value, valueExpression);
   if (needCompositionGuard) {
-    code = "if($events.target.composing)return;" + code;
+    code = "if($event.target.composing)return;" + code;
   }
 
   addProp(el, 'value', ("(" + value + ")"));
@@ -44921,14 +44921,14 @@ function genDefaultModel (
 
 /*  */
 
-// normalize v-model events tokens that can only be determined at runtime.
-// it's important to place the events as the first in the array because
+// normalize v-model event tokens that can only be determined at runtime.
+// it's important to place the event as the first in the array because
 // the whole point is ensuring the v-model callback gets called before
 // user-attached handlers.
 function normalizeEvents (on) {
   /* istanbul ignore if */
   if (isDef(on[RANGE_TOKEN])) {
-    // IE input[type=range] only supports `change` events
+    // IE input[type=range] only supports `change` event
     var event = isIE ? 'change' : 'input';
     on[event] = [].concat(on[RANGE_TOKEN], on[event] || []);
     delete on[RANGE_TOKEN];
@@ -44955,7 +44955,7 @@ function createOnceHandler$1 (event, handler, capture) {
 }
 
 // #9446: Firefox <= 53 (in particular, ESR 52) has incorrect Event.timeStamp
-// implementation and does not fire microtasks in between events propagation, so
+// implementation and does not fire microtasks in between event propagation, so
 // safe to exclude.
 var useMicrotaskFix = isUsingMicroTask && !(isFF && Number(isFF[1]) <= 53);
 
@@ -44965,11 +44965,11 @@ function add$1 (
   capture,
   passive
 ) {
-  // async edge case #6566: inner click events triggers patch, events handler
+  // async edge case #6566: inner click event triggers patch, event handler
   // attached to outer element during patch, and triggered again. This
-  // happens because browsers fire microtask ticks between events propagation.
+  // happens because browsers fire microtask ticks between event propagation.
   // the solution is simple: we save the timestamp when a handler is attached,
-  // and the handler would only fire if the events passed to it was fired
+  // and the handler would only fire if the event passed to it was fired
   // AFTER it was attached.
   if (useMicrotaskFix) {
     var attachedTimestamp = currentFlushTimestamp;
@@ -44977,17 +44977,17 @@ function add$1 (
     handler = original._wrapper = function (e) {
       if (
         // no bubbling, should always fire.
-        // this is just a safety net in case events.timeStamp is unreliable in
+        // this is just a safety net in case event.timeStamp is unreliable in
         // certain weird environments...
         e.target === e.currentTarget ||
-        // events is fired after handler attachment
+        // event is fired after handler attachment
         e.timeStamp >= attachedTimestamp ||
-        // bail for environments that have buggy events.timeStamp implementations
-        // #9462 iOS 9 bug: events.timeStamp is 0 after history.pushState
-        // #9681 QtWebEngine events.timeStamp is negative value
+        // bail for environments that have buggy event.timeStamp implementations
+        // #9462 iOS 9 bug: event.timeStamp is 0 after history.pushState
+        // #9681 QtWebEngine event.timeStamp is negative value
         e.timeStamp <= 0 ||
-        // #9448 bail if events is fired in another document in a multi-page
-        // electron/nw.js app, since events.timeStamp will be using a different
+        // #9448 bail if event is fired in another document in a multi-page
+        // electron/nw.js app, since event.timeStamp will be using a different
         // starting reference
         e.target.ownerDocument !== document
       ) {
@@ -45407,7 +45407,7 @@ var hasTransition = inBrowser && !isIE9;
 var TRANSITION = 'transition';
 var ANIMATION = 'animation';
 
-// Transition property/events sniffing
+// Transition property/event sniffing
 var transitionProp = 'transition';
 var transitionEndEvent = 'transitionend';
 var animationProp = 'animation';
@@ -45951,7 +45951,7 @@ var directive = {
       var prevOptions = el._vOptions;
       var curOptions = el._vOptions = [].map.call(el.options, getValue);
       if (curOptions.some(function (o, i) { return !looseEqual(o, prevOptions[i]); })) {
-        // trigger change events if
+        // trigger change event if
         // no matching option found for at least one value
         var needReset = el.multiple
           ? binding.value.some(function (v) { return hasNoMatchingOption(v, curOptions); })
@@ -46022,7 +46022,7 @@ function onCompositionStart (e) {
 }
 
 function onCompositionEnd (e) {
-  // prevent triggering an input events for no reason
+  // prevent triggering an input event for no reason
   if (!e.target.composing) { return }
   e.target.composing = false;
   trigger(e.target, 'input');
@@ -47753,7 +47753,7 @@ function processAttrs (el) {
             name = camelize(name);
           }
           if (modifiers.sync) {
-            syncGen = genAssignmentCode(value, "$events");
+            syncGen = genAssignmentCode(value, "$event");
             if (!isDynamic) {
               addHandler(
                 el,
@@ -47776,7 +47776,7 @@ function processAttrs (el) {
                 );
               }
             } else {
-              // handler w/ dynamic events name
+              // handler w/ dynamic event name
               addHandler(
                 el,
                 ("\"update:\"+(" + name + ")"),
@@ -48213,16 +48213,16 @@ var keyNames = {
 var genGuard = function (condition) { return ("if(" + condition + ")return null;"); };
 
 var modifierCode = {
-  stop: '$events.stopPropagation();',
-  prevent: '$events.preventDefault();',
-  self: genGuard("$events.target !== $events.currentTarget"),
-  ctrl: genGuard("!$events.ctrlKey"),
-  shift: genGuard("!$events.shiftKey"),
-  alt: genGuard("!$events.altKey"),
-  meta: genGuard("!$events.metaKey"),
-  left: genGuard("'button' in $events && $events.button !== 0"),
-  middle: genGuard("'button' in $events && $events.button !== 1"),
-  right: genGuard("'button' in $events && $events.button !== 2")
+  stop: '$event.stopPropagation();',
+  prevent: '$event.preventDefault();',
+  self: genGuard("$event.target !== $event.currentTarget"),
+  ctrl: genGuard("!$event.ctrlKey"),
+  shift: genGuard("!$event.shiftKey"),
+  alt: genGuard("!$event.altKey"),
+  meta: genGuard("!$event.metaKey"),
+  left: genGuard("'button' in $event && $event.button !== 0"),
+  middle: genGuard("'button' in $event && $event.button !== 1"),
+  right: genGuard("'button' in $event && $event.button !== 2")
 };
 
 function genHandlers (
@@ -48265,7 +48265,7 @@ function genHandler (handler) {
     if (isMethodPath || isFunctionExpression) {
       return handler.value
     }
-    return ("function($events){" + (isFunctionInvocation ? ("return " + (handler.value)) : handler.value) + "}") // inline statement
+    return ("function($event){" + (isFunctionInvocation ? ("return " + (handler.value)) : handler.value) + "}") // inline statement
   } else {
     var code = '';
     var genModifierCode = '';
@@ -48282,7 +48282,7 @@ function genHandler (handler) {
         genModifierCode += genGuard(
           ['ctrl', 'shift', 'alt', 'meta']
             .filter(function (keyModifier) { return !modifiers[keyModifier]; })
-            .map(function (keyModifier) { return ("$events." + keyModifier + "Key"); })
+            .map(function (keyModifier) { return ("$event." + keyModifier + "Key"); })
             .join('||')
         );
       } else {
@@ -48297,22 +48297,22 @@ function genHandler (handler) {
       code += genModifierCode;
     }
     var handlerCode = isMethodPath
-      ? ("return " + (handler.value) + "($events)")
+      ? ("return " + (handler.value) + "($event)")
       : isFunctionExpression
-        ? ("return (" + (handler.value) + ")($events)")
+        ? ("return (" + (handler.value) + ")($event)")
         : isFunctionInvocation
           ? ("return " + (handler.value))
           : handler.value;
-    return ("function($events){" + code + handlerCode + "}")
+    return ("function($event){" + code + handlerCode + "}")
   }
 }
 
 function genKeyFilter (keys) {
   return (
     // make sure the key filters only apply to KeyboardEvents
-    // #9441: can't use 'keyCode' in $events because Chrome autofill fires fake
+    // #9441: can't use 'keyCode' in $event because Chrome autofill fires fake
     // key events that do not have keyCode property...
-    "if(!$events.type.indexOf('key')&&" +
+    "if(!$event.type.indexOf('key')&&" +
     (keys.map(genFilterCode).join('&&')) + ")return null;"
   )
 }
@@ -48320,15 +48320,15 @@ function genKeyFilter (keys) {
 function genFilterCode (key) {
   var keyVal = parseInt(key, 10);
   if (keyVal) {
-    return ("$events.keyCode!==" + keyVal)
+    return ("$event.keyCode!==" + keyVal)
   }
   var keyCode = keyCodes[key];
   var keyName = keyNames[key];
   return (
-    "_k($events.keyCode," +
+    "_k($event.keyCode," +
     (JSON.stringify(key)) + "," +
     (JSON.stringify(keyCode)) + "," +
-    "$events.key," +
+    "$event.key," +
     "" + (JSON.stringify(keyName)) +
     ")"
   )
@@ -48582,7 +48582,7 @@ function genData$2 (el, state) {
   if (el.props) {
     data += "domProps:" + (genProps(el.props)) + ",";
   }
-  // events handlers
+  // event handlers
   if (el.events) {
     data += (genHandlers(el.events, false)) + ",";
   }
@@ -49601,7 +49601,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   null,
   null,
   null
-
+  
 )
 
 /* hot reload */
@@ -49621,7 +49621,7 @@ component.options.__file = "resources/js/components/ExampleComponent.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ExampleComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
