@@ -26,14 +26,8 @@
                 </div>
             </div>
         </div>
-
-
     @endforeach
 </div>
-
-
-
-
 
     <section class="catalog" id="catalog">
         <div class="container">
@@ -115,8 +109,12 @@
                     @endforeach
 
 
-                    </div>
 
+                    </div>
+{{--                    {{ $works->links() }}--}}
+                    <div class="works__btn">
+                        <a class="btn btn__accent" href="{{ url('/works') }}">Все работы</a>
+                    </div>
                 </div>
 
             </div>
