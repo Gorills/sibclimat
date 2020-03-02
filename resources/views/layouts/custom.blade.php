@@ -8,6 +8,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
     <link rel="stylesheet" href="{{ URL::asset('css/site.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=cyrillic" rel="stylesheet">    <title>@yield('title')</title>
@@ -40,7 +46,7 @@
             <nav class="header__nav">
                 <a href="{{url('/#about')}}" class="header__link">О компании</a>
                 <a href="{{url('/#catalog')}}" class="header__link">Каталог</a>
-                <a href="{{url('/works')}}" class="header__link">Наши работы</a>
+                <a href="{{url('/#works')}}" class="header__link">Наши работы</a>
                 <a href="{{url('/contacts')}}" class="header__link">Контакты</a>
             </nav>
             <div class="header__social">
@@ -53,21 +59,21 @@
                     <p class="header__social-label">Заказать звонок</p>
                 </div>
 
-                <div class="toggle-menu" id="menu">
-                    <div class="toggle-section">
-                        <a href="#" class="menu-btn">
-                            <span></span>
-                        </a>
-                    </div>
-                </div>
+{{--                <div class="toggle-menu" id="menu">--}}
+{{--                    <div class="toggle-section">--}}
+{{--                        <a href="#" class="menu-btn">--}}
+{{--                            <span></span>--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </div>
 
 
-        <div class="header-bottom">
+{{--        <div class="header-bottom">--}}
 
 
-        </div>
+{{--        </div>--}}
     </div>
 </header>
 
@@ -84,7 +90,13 @@
 
 
 
+<footer class="footer">
+    <div class="container">
+        <div class="footer__inner">
 
+        </div>
+    </div>
+</footer>
 
 
 
@@ -104,25 +116,26 @@
     // })
     //
     //
-    // $("body").on('click', '[href*="#"]', function(e){
-    //     var fixed_offset = 60;
-    //     $('html,body').stop().animate({ scrollTop: $(this.hash).offset().top - fixed_offset }, 1000);
-    //     e.preventDefault();
+
+
+    // $(window).scroll(function() {
+    //     var height = $(window).scrollTop();
+    //     /*Если сделали скролл на 100px задаём новый класс для header*/
+    //     if(height > 500){
+    //         $('header').addClass('header-fixed');
+    //     } else{
+    //         /*Если меньше 100px удаляем класс для header*/
+    //         $('header').removeClass('header-fixed');
+    //     }
     // });
 
-
-    $(window).scroll(function() {
-        var height = $(window).scrollTop();
-        /*Если сделали скролл на 100px задаём новый класс для header*/
-        if(height > 500){
-            $('header').addClass('header-fixed');
-        } else{
-            /*Если меньше 100px удаляем класс для header*/
-            $('header').removeClass('header-fixed');
-        }
+    $("body").on('click', '[href*="#"]', function(e){
+        var fixed_offset = 60;
+        $('html,body').stop().animate({ scrollTop: $(this.hash).offset().top - fixed_offset }, 1000);
+        e.preventDefault();
     });
 
-
+    // Активная ссылка для header в зависимости от url
     // jQuery(document).ready(function($) {
     //     var url=document.location.href;
     //     $.each($(".header__nav a"),function(){
@@ -131,9 +144,21 @@
     //         }
     //     });
     // })(jQuery);
+
+
 </script>
-
-
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <style src="{{ URL::asset('js/app.js') }}"></style>
+<script>
+    $('.slick').slick({
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true,
+        autoplay: true,
+        pauseOnFocus: false,
+
+    });
+</script>
 </body>
 </html>

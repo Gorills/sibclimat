@@ -14,7 +14,7 @@
 </div>
 
 <div class="form-group">
-    <label>Полный текст акции</label>
+    <label>Полный текст новости</label>
     <textarea class="form-control" placeholder="Описание" name="full_description">{{ $event->full_description ?? "" }}</textarea>
 </div>
 
