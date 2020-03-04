@@ -35,7 +35,7 @@
 
 
                     </div>
-                    {{--                    {{ $works->links() }}--}}
+                                        {{ $works->links() }}
 
                 </div>
     </div>

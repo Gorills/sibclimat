@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
     <link rel="stylesheet" href="{{ URL::asset('css/site.css') }}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/0af96d350a.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=cyrillic" rel="stylesheet">    <title>@yield('title')</title>
     <meta name="description" content="@yield('description')"/>
     <meta name="keywords" content="@yield('keywords')" />
@@ -37,13 +37,40 @@
 
 </head>
 <body>
+
+<div class="popup">
+    <div class="container">
+        <div class="popup__inner">
+            <a href="" class="popup__close"><i class="fas fa-times"></i></a>
+            <p class="popup__title">Оставить заявку</p>
+
+            <form class="form" action="">
+                <label>Имя</label>
+                <input class="form__input" type="text" name="name" id="">
+
+                <label>Телефон</label>
+                <input class="form__input" type="tel" name="tel" id="">
+
+                <label>Сообщение</label>
+                <textarea class="form__input" type="text" rows="7" name="msg" id=""></textarea>
+
+                <button type="submit" class="btn btn__accent">Отправить</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
 <header class="header">
     <div class="container">
         <div class="header__inner">
-            <a class="header__logo-link" href="#">
+            <a class="header__logo-link" href="{{ url('/') }}">
                 <img src="{{ asset('images/001.png') }}" alt="" class="header__logo">
             </a>
             <nav class="header__nav">
+                <a href="{{url('/')}}" class="header__link">Главная</a>
                 <a href="{{url('/#about')}}" class="header__link">О компании</a>
                 <a href="{{url('/#catalog')}}" class="header__link">Каталог</a>
                 <a href="{{url('/#works')}}" class="header__link">Наши работы</a>
@@ -76,29 +103,37 @@
 {{--        </div>--}}
     </div>
 </header>
-
-
-
-
-
-
-
-
-
-
 @yield('content')
-
-
-
 <footer class="footer">
     <div class="container">
         <div class="footer__inner">
+            <div class="footer__contacts">
+                <p class="footer__title">Контакты</p>
+                <a href="#" class="footer__links"><i class="footer__icon fas fa-map-marker-alt"></i> г.Томск, ул. Усова ..., офис 205</a>
+                <a href="#" class="footer__links"><i class="footer__icon fas fa-phone"></i> 8952598965</a>
+                <a href="#" class="footer__links"><i class="footer__icon fas fa-envelope"></i> mail@mail.com</a>
+            </div>
+            <nav class="footer__nav">
+                <p class="footer__title">Меню</p>
+                <a class="footer__links" href="#">Главная</a>
+                <a class="footer__links" href="#">О компании</a>
+                <a class="footer__links" href="#">Каталог</a>
+                <a class="footer__links" href="#">Наши работы</a>
+                <a class="footer__links" href="#">Контакты</a>
+            </nav>
+            <div class="footer__submenu">
+                <p class="footer__title">Услуги</p>
+                <a class="footer__links" href="#">Кондиционеры</a>
+                <a class="footer__links" href="#">Вентиляция</a>
+                <a class="footer__links" href="#">Тепловое оборудование</a>
+                <a class="footer__links" href="#">Климатические системы</a>
 
+
+            </div>
         </div>
+        <a class="footer__logo-link" href="{{ url('/') }}"><img class="footer__logo" src="{{ asset('images/001.png') }}" alt=""></a>
     </div>
 </footer>
-
-
 
 
 
@@ -116,18 +151,33 @@
     // })
     //
     //
+    $(".header__social-icon").click(function(e) {
+        e.preventDefault();
+        $(".popup").toggleClass('popup_active');
+
+    })
+
+    $(".popup__close").click(function(e) {
+        e.preventDefault();
+        $(".popup").removeClass('popup_active');
+
+    })
 
 
-    // $(window).scroll(function() {
-    //     var height = $(window).scrollTop();
-    //     /*Если сделали скролл на 100px задаём новый класс для header*/
-    //     if(height > 500){
-    //         $('header').addClass('header-fixed');
-    //     } else{
-    //         /*Если меньше 100px удаляем класс для header*/
-    //         $('header').removeClass('header-fixed');
-    //     }
-    // });
+
+
+
+
+    $(window).scroll(function() {
+        var height = $(window).scrollTop();
+        /*Если сделали скролл на 100px задаём новый класс для header*/
+        if(height > 500){
+            $('header').addClass('header_fixed');
+        } else{
+            /*Если меньше 100px удаляем класс для header*/
+            $('header').removeClass('header_fixed');
+        }
+    });
 
     $("body").on('click', '[href*="#"]', function(e){
         var fixed_offset = 60;
