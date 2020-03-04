@@ -24,6 +24,10 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware' => ['auth']]
 
 Route::get('/', 'IndexController@index');
 Route::get('/works', 'WorksController@index')->name('works');
+Route::get('/kondicionery', function () {
+    return view('kondicionery');
+});
+
 
 
 Auth::routes();

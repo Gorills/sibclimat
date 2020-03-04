@@ -12,7 +12,7 @@ class WorksController extends Controller
         return view('works', [
 
 
-            'works' =>Work::orderBy('created_at', 'desc')->get()
+            'works' =>Work::orderBy('created_at', 'desc')->paginate(6)
 
 
         ]);
