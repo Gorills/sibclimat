@@ -109,7 +109,7 @@
         <div class="footer__inner">
             <div class="footer__contacts">
                 <p class="footer__title">Контакты</p>
-                <a class="footer__links"><i class="footer__icon fas fa-map-marker-alt"></i> г.Томск, ул. Усова ..., офис 205</a>
+                <a href="#" class="footer__links"><i class="footer__icon fas fa-map-marker-alt"></i> г.Томск, ул. Усова ..., офис 205</a>
                 <a href="#" class="footer__links"><i class="footer__icon fas fa-phone"></i> 8952598965</a>
                 <a href="#" class="footer__links"><i class="footer__icon fas fa-envelope"></i> mail@mail.com</a>
             </div>
@@ -131,7 +131,7 @@
 
             </div>
         </div>
-        <img class="footer__logo" src="{{ asset('images/001.png') }}" alt="">
+        <a class="footer__logo-link" href="{{ url('/') }}"><img class="footer__logo" src="{{ asset('images/001.png') }}" alt=""></a>
     </div>
 </footer>
 
