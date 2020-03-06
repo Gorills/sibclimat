@@ -48,50 +48,26 @@
             <div class="catalog__inner">
                 {{--            <h2 class="catalog__title">Каталог</h2>--}}
                 <div class="catalog__grid">
-                    <a href="{{ url('/kondicionery') }}" class="catalog__item">
+
+
+
+                @foreach($categories as $category)
+                    <a href="{{ url("/$category->slug") }}" class="catalog__item">
                         <div class="catalog__img-block">
-                            <img src="{{ asset('images/uslugi/slide-1.jpg') }}" alt="" class="catalog__img">
+                            <img src="{{ Storage::url($category->image) }}" alt="" class="catalog__img">
                         </div>
 
                         <div class="catalog__text-block">
-                            <h3 class="catalog__item-title">Кондиционеры</h3>
+                            <h3 class="catalog__item-title">{{ $category->title }}</h3>
 {{--                            <p class="catalog__item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad bquam pariatur perspiciatis porro quia quibusdam quod, reiciendis sunt unde vero!</p>--}}
 {{--                            <p class="catalog__btn btn btn__accent">Подробнее</p>--}}
                         </div>
                     </a>
-                    <a href="#" class="catalog__item">
-                        <div class="catalog__img-block">
-                            <img src="{{ asset('images/uslugi/slide-1.jpg') }}" alt="" class="catalog__img">
-                        </div>
+                    @endforeach
 
-                        <div class="catalog__text-block">
-                            <h3 class="catalog__item-title">Вентиляция</h3>
-{{--                            <p class="catalog__item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad bquam pariatur perspiciatis porro quia quibusdam quod, reiciendis sunt unde vero!</p>--}}
-{{--                            <p class="catalog__btn btn btn__accent">Подробнее</p>--}}
-                        </div>
-                    </a>
-                    <a href="#" class="catalog__item">
-                        <div class="catalog__img-block">
-                            <img src="{{ asset('images/uslugi/slide-1.jpg') }}" alt="" class="catalog__img">
-                        </div>
 
-                        <div class="catalog__text-block">
-                            <h3 class="catalog__item-title">Тепловое оборудование</h3>
-{{--                            <p class="catalog__item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad bquam pariatur perspiciatis porro quia quibusdam quod, reiciendis sunt unde vero!</p>--}}
-{{--                            <p class="catalog__btn btn btn__accent">Подробнее</p>--}}
-                        </div>
-                    </a>
-                    <a href="#" class="catalog__item">
-                        <div class="catalog__img-block">
-                            <img src="{{ asset('images/uslugi/slide-1.jpg') }}" alt="" class="catalog__img">
-                        </div>
 
-                        <div class="catalog__text-block">
-                            <h3 class="catalog__item-title">Климатические системы</h3>
-{{--                            <p class="catalog__item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad bquam pariatur perspiciatis porro quia quibusdam quod, reiciendis sunt unde vero!</p>--}}
-{{--                            <p class="catalog__btn btn btn__accent">Подробнее</p>--}}
-                        </div>
-                    </a>
+
                 </div>
             </div>
         </div>
