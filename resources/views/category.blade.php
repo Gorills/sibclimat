@@ -23,6 +23,9 @@
             </nav>
 
 
+
+
+
             <div class="posadochnaya__inner">
                 <h1 class="posadochnaya__title">{{ $category->title }}</h1>
                 <p class="posadochnaya__text">{{ $category->description }}</p>
@@ -30,51 +33,26 @@
 
 
 
+                        @foreach($categories->where('parent_id', $category->id) as $child)
 
 
-                    <a href="{{ url('/kondicionery/nastennye-split-sistemy') }}" class="posadochnaya__item">
-                        <img class="posadochnaya__img" src="{{asset('images/uslugi/slide-1.jpg')}}" alt="">
-                        <div class="posadochnaya__block">
-                            <h3 class="posadochnaya__subtitle">Настенные сплит системы</h3>
-                            {{--                        <p class="posadochnaya__btn btn btn__accent">Подробнее</p>--}}
-                        </div>
-                    </a>
+                            <a href="{{ url('/kondicionery/nastennye-split-sistemy') }}" class="posadochnaya__item">
+                                <img class="posadochnaya__img" src="{{ Storage::url($child->image) }}" alt="">
+                                <div class="posadochnaya__block">
+                                    <h3 class="posadochnaya__subtitle"> {{ $child->title }} </h3>
 
-{{--                    <a href="#" class="posadochnaya__item">--}}
-{{--                        <img class="posadochnaya__img" src="{{asset('images/uslugi/slide-1.jpg')}}" alt="">--}}
-{{--                        <div class="posadochnaya__block">--}}
-{{--                            <h3 class="posadochnaya__subtitle">Напольные кондиционеры</h3>--}}
-{{--                            --}}{{--                        <p class="posadochnaya__btn btn btn__accent">Подробнее</p>--}}
-{{--                        </div>--}}
-{{--                    </a>--}}
-{{--                    <a href="#" class="posadochnaya__item">--}}
-{{--                        <img class="posadochnaya__img" src="{{asset('images/uslugi/slide-1.jpg')}}" alt="">--}}
-{{--                        <div class="posadochnaya__block">--}}
-{{--                            <h3 class="posadochnaya__subtitle">Напольные кондиционеры</h3>--}}
-{{--                            --}}{{--                        <p class="posadochnaya__btn btn btn__accent">Подробнее</p>--}}
-{{--                        </div>--}}
-{{--                    </a>--}}
-{{--                    <a href="#" class="posadochnaya__item">--}}
-{{--                        <img class="posadochnaya__img" src="{{asset('images/uslugi/slide-1.jpg')}}" alt="">--}}
-{{--                        <div class="posadochnaya__block">--}}
-{{--                            <h3 class="posadochnaya__subtitle">Напольные кондиционеры</h3>--}}
-{{--                            --}}{{--                        <p class="posadochnaya__btn btn btn__accent">Подробнее</p>--}}
-{{--                        </div>--}}
-{{--                    </a>--}}
-{{--                    <a href="#" class="posadochnaya__item">--}}
-{{--                        <img class="posadochnaya__img" src="{{asset('images/uslugi/slide-1.jpg')}}" alt="">--}}
-{{--                        <div class="posadochnaya__block">--}}
-{{--                            <h3 class="posadochnaya__subtitle">Напольные кондиционеры</h3>--}}
-{{--                            --}}{{--                        <p class="posadochnaya__btn btn btn__accent">Подробнее</p>--}}
-{{--                        </div>--}}
-{{--                    </a>--}}
-{{--                    <a href="#" class="posadochnaya__item">--}}
-{{--                        <img class="posadochnaya__img" src="{{asset('images/uslugi/slide-1.jpg')}}" alt="">--}}
-{{--                        <div class="posadochnaya__block">--}}
-{{--                            <h3 class="posadochnaya__subtitle">Напольные кондиционеры</h3>--}}
-{{--                            --}}{{--                        <p class="posadochnaya__btn btn btn__accent">Подробнее</p>--}}
-{{--                        </div>--}}
-{{--                    </a>--}}
+                                </div>
+                            </a>
+
+
+                        @endforeach
+
+
+
+
+
+
+
 
                 </div>
 
