@@ -118,6 +118,7 @@ h1, h2, h3, h4, h5, h6, p
     flex-wrap: wrap
     padding: 0.75rem 1rem
     margin-bottom: 1rem
+    margin-top: 0
     list-style: none
     //border-bottom: $border
     //background-color: #e9ecef
@@ -232,10 +233,10 @@ h1, h2, h3, h4, h5, h6, p
 
 // Header
 .header
-    position: absolute
-    top: 0
-    left: 0
-    right: 0
+    //position: absolute
+    //top: 0
+    //left: 0
+    //right: 0
     width: 100%
     padding: 15px 0
     z-index: 2
@@ -279,7 +280,7 @@ h1, h2, h3, h4, h5, h6, p
             height: 3px
             background-color: $color-hover
             left: 0
-            top: 48px
+            top: 49px
             transition: $transition
         &:hover::after
             width: 100%
@@ -355,8 +356,8 @@ h1, h2, h3, h4, h5, h6, p
     // slider__bcg
     &__bcg
         width: 100%
-        height: 100vh
-        min-height: 600px
+        height: 50vh
+        min-height: 340px
         position: relative
         overflow: hidden
         z-index: 1
@@ -370,8 +371,8 @@ h1, h2, h3, h4, h5, h6, p
         left: 50%
         transform: translate(-50%,-50%)
         width: 100%
-        height: 100vh
-        min-height: 600px
+        height: 50vh
+        min-height: 340px
         object-fit: cover
         opacity: 70%
         z-index: 2
@@ -383,7 +384,7 @@ h1, h2, h3, h4, h5, h6, p
         left: 50%
         width: 100%
         max-width: 900px
-        padding: 60px 15px
+        padding: 30px 15px
         transform: translate(-50%,-50%)
         background-color: rgba(68, 68, 68, 0.7)
         z-index: 999
@@ -436,10 +437,10 @@ h1, h2, h3, h4, h5, h6, p
     // catalog__img-block
     &__img-block
         width: 100%
-        height: 250px
+        height: 150px
         position: relative
         overflow: hidden
-        margin-bottom: 15px
+        //margin-bottom: 15px
 
     // catalog__img
     &__img
@@ -448,7 +449,7 @@ h1, h2, h3, h4, h5, h6, p
         left: 50%
         transform: translate(-50%,-50%)
         width: 100%
-        height: 250px
+        height: 150px
         object-fit: cover
     // catalog__text-block
     &__text-block
@@ -457,9 +458,11 @@ h1, h2, h3, h4, h5, h6, p
         background-color: #fff
     // catalog__item-title
     &__item-title
-        margin-bottom: 15px
+        //margin-bottom: 15px
         text-align: center
         text-transform: uppercase
+        font-weight: 400
+        font-size: 14px
 
     // catalog__item-text
     &__item-text
@@ -480,11 +483,14 @@ h1, h2, h3, h4, h5, h6, p
         width: 100%
         padding: $section-padding
     // section__titile
-    &__titile
-        margin-bottom: $section-padding-bottom
+    &__title
+        margin-bottom: 40px
+
+        font-size: 30px
+
     // section__text
     &__text
-        margin-bottom: $section-padding-bottom
+        margin-bottom: 40px
 
 
 
@@ -492,9 +498,11 @@ h1, h2, h3, h4, h5, h6, p
 .works
     width: 100%
     margin: 0 auto
+    padding: 40px 0
     // works__title
     &__title
-        margin-bottom: 20px
+        margin-bottom: 40px
+        font-size: 30px
     // works__grid
     &__grid
         display: grid
@@ -548,12 +556,13 @@ h1, h2, h3, h4, h5, h6, p
 .posadochnaya
     width: 100%
     margin: 0 auto
-    padding: 76px 0 40px
+    padding: 0 0 40px
     background-color: $background-color-light
     // posadochnaya__inner
     &__inner
         width: 100%
         margin: 0 auto
+        padding: 20px 0
     // posadochnaya__title
     &__title
         text-align: center
@@ -574,7 +583,7 @@ h1, h2, h3, h4, h5, h6, p
         text-decoration: none
 
         width: 100%
-        height: 250px
+        height: 150px
         position: relative
         overflow: hidden
         transition: $transition
@@ -586,14 +595,14 @@ h1, h2, h3, h4, h5, h6, p
     // posadochnaya__img
     &__img
         position: absolute
-        height: 100%
+        width: 100%
         top: 50%
         left: 50%
         transform: translate(-50%, -50%)
         object-fit: cover
     // posadochnaya__block
     &__block
-        padding: 30px 10px 0
+        padding: 30px 10px
         position: absolute
         top: 0
         left: 0
@@ -610,14 +619,14 @@ h1, h2, h3, h4, h5, h6, p
     // posadochnaya__subtitle
     &__subtitle
         text-transform: uppercase
-        margin-bottom: 15px
+        //margin-bottom: 15px
         text-align: center
     // posadochnaya__btn
     &__btn
         opacity: 0
 
 
-// section
+// section-opt
 .section-opt
     width: 100%
     margin: 0 auto
@@ -630,6 +639,7 @@ h1, h2, h3, h4, h5, h6, p
     &__title
         text-align: center
         margin-bottom: 20px
+        font-size: 30px
     // section-opt__text
     &__text
         margin-bottom: 20px
@@ -641,7 +651,7 @@ h1, h2, h3, h4, h5, h6, p
     border-top: $border
     width: 100%
     margin: 0 auto
-    background-color: #fff
+    background-color: $background-color-light
     padding: 60px 0
     color: #333
     font-weight: 700

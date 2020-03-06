@@ -13,20 +13,38 @@
 
 
 Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware' => ['auth']], function (){
-
     Route::get('/', 'DashboardController@dashboard')->name('admin.index');
     Route::resource('/stock', 'StockController', ['as'=>'admin']);
     Route::resource('/event', 'EventController', ['as'=>'admin']);
     Route::resource('/work', 'WorkController', ['as'=>'admin']);
-
 });
 
 
 Route::get('/', 'IndexController@index');
 Route::get('/works', 'WorksController@index')->name('works');
+
+
+
+
+
 Route::get('/kondicionery', function () {
     return view('kondicionery');
 });
+
+Route::get('/kondicionery/nastennye-split-sistemy', function () {
+    return view('nastennye-split-sistemy');
+});
+
+
+
+
+
+
+Route::get('/contacts', function () {
+    return view('contacts');
+});
+
+
 
 
 
