@@ -14,7 +14,7 @@ class IndexController extends Controller
         return view('index', [
 
             'stocks' =>Stock::all(),
-            'events' =>Event::all(),
+            'events' =>Event::orderBy('created_at', 'desc')->paginate(3),
             'works' =>Work::orderBy('created_at', 'desc')->paginate(3)
 
 
