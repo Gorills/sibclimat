@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Event;
 use App\Stock;
 use App\Work;
@@ -15,8 +16,8 @@ class IndexController extends Controller
 
             'stocks' =>Stock::all(),
             'events' =>Event::orderBy('created_at', 'desc')->paginate(3),
-            'works' =>Work::orderBy('created_at', 'desc')->paginate(3)
-
+            'works' =>Work::orderBy('created_at', 'desc')->paginate(3),
+            'categories' => Category::with('children')->where('parent_id', 0)->get()
 
         ]);
 
