@@ -12,6 +12,8 @@
 */
 
 
+Route::get('/{slug}', 'ShopController@category')->name('category');
+
 Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware' => ['auth']], function (){
     Route::get('/', 'DashboardController@dashboard')->name('admin.dashboard');
     Route::resource('/stock', 'StockController', ['as'=>'admin']);
@@ -30,27 +32,19 @@ Route::get('/works', 'WorksController@index')->name('works');
 
 
 
-
-Route::get('/kondicionery', function () {
-    return view('kondicionery');
-});
-
-Route::get('/kondicionery/nastennye-split-sistemy', function () {
-    return view('nastennye-split-sistemy');
-});
-
-
-
-
+//
+//Route::get('/kondicionery', function () {
+//    return view('kondicionery');
+//});
+//
+//Route::get('/kondicionery/nastennye-split-sistemy', function () {
+//    return view('nastennye-split-sistemy');
+//});
 
 
 Route::get('/contacts', function () {
     return view('contacts');
 });
-
-
-
-
 
 Auth::routes();
 
