@@ -12,7 +12,7 @@
 */
 
 
-Route::get('/{slug}', 'ShopController@category')->name('category');
+Route::get('/category/{slug}', 'ShopController@category')->name('category');
 
 Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware' => ['auth']], function (){
     Route::get('/', 'DashboardController@dashboard')->name('admin.dashboard');

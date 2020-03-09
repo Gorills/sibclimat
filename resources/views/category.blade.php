@@ -31,12 +31,9 @@
                 <p class="posadochnaya__text">{{ $category->description }}</p>
                 <div class="posadochnaya__grid">
 
-
-
                         @foreach($categories->where('parent_id', $category->id) as $child)
 
-
-                            <a href="{{ url('/kondicionery/nastennye-split-sistemy') }}" class="posadochnaya__item">
+                            <a href="{{ url("/category/$child->slug") }}" class="posadochnaya__item">
                                 <img class="posadochnaya__img" src="{{ Storage::url($child->image) }}" alt="">
                                 <div class="posadochnaya__block">
                                     <h3 class="posadochnaya__subtitle"> {{ $child->title }} </h3>
@@ -44,15 +41,7 @@
                                 </div>
                             </a>
 
-
                         @endforeach
-
-
-
-
-
-
-
 
                 </div>
 
@@ -60,6 +49,8 @@
             </div>
         </div>
     </section>
+
+
 
     <section class="section-opt">
         <div class="container">
