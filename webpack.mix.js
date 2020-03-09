@@ -18,5 +18,5 @@ mix.sass('resources/sass/site.sass', 'public/css');
 
 
 mix.browserSync({
-    proxy: 'sibclimat'
+    proxy: 'evrika'
 });
