@@ -15,9 +15,11 @@ class ShopController extends Controller
         return view('category', [
 
             'category' => $category,
-            'categories' => $category->children()->get()
+            'categories' => Category::with('children')->get()
 
         ]);
 
     }
+
+
 }

@@ -49,7 +49,7 @@
                     </div>
                 </div>
 
-                <div class="dropdown">
+                <div class="dropdown mr-3">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Магазин
                     </button>
@@ -57,7 +57,15 @@
                         <a class="dropdown-item" href="{{ route('admin.store') }}">Магазин</a>
                         <a class="dropdown-item" href="{{ route('admin.category.index') }}">Катогории</a>
                         <a class="dropdown-item" href="{{ route('admin.product.index') }}">Товары</a>
+                    </div>
+                </div>
 
+                <div class="dropdown mr-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Управление пользователями
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ route('admin.user_managment.user.index') }}">Пользователи</a>
 
                     </div>
                 </div>

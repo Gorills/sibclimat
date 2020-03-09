@@ -52,7 +52,7 @@
 
 
                 @foreach($categories as $category)
-                    <a href="{{ url("/$category->slug") }}" class="catalog__item">
+                    <a href="{{ url("/category/$category->slug") }}" class="catalog__item">
                         <div class="catalog__img-block">
                             <img src="{{ Storage::url($category->image) }}" alt="" class="catalog__img">
                         </div>
