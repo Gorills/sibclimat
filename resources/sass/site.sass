@@ -117,7 +117,7 @@ h1, h2, h3, h4, h5, h6, p
     display: flex
     flex-wrap: wrap
     padding: 0.75rem 1rem
-    margin-bottom: 1rem
+    //margin-bottom: 1rem
     margin-top: 0
     list-style: none
     //border-bottom: $border
@@ -562,13 +562,13 @@ h1, h2, h3, h4, h5, h6, p
     &__inner
         width: 100%
         margin: 0 auto
-        padding: 20px 0
+        padding: 0
     // posadochnaya__title
     &__title
         text-align: center
         text-transform: uppercase
-        font-size: 38px
-        margin-bottom: 20px
+        font-size: 28px
+        margin-bottom: 40px
     // posadochnaya__text
     &__text
         margin-bottom: 20px
@@ -625,7 +625,45 @@ h1, h2, h3, h4, h5, h6, p
     &__btn
         opacity: 0
 
+    // posadochnaya__tovar
+    &__tovar
 
+    //  posadochnaya__tovar-img-block
+    &__tovar-img-block
+        width: 100%
+        height: 150px
+        overflow: hidden
+        object-fit: cover
+        position: relative
+        margin-bottom: 15px
+    // posadochnaya__tovar-img
+    &__tovar-img
+        width: 100%
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+
+    // posadochnaya__tovar-title
+    &__tovar-title
+        text-align: center
+        margin-bottom: 15px
+    // posadochnaya__tovar-description
+    &__tovar-description
+        text-align: center
+        margin-bottom: 15px
+    // posadochnaya__tovar-price
+    &__tovar-price
+        text-align: center
+
+        font-weight: 700
+        color: $color-hover
+        font-size: 20px
+        margin-bottom: 20px
+    // posadochnaya__tovar-button
+    &__tovar-button
+        width: 100%
+        text-align: center
 // section-opt
 .section-opt
     width: 100%

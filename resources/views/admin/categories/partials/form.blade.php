@@ -22,8 +22,18 @@
 </div>
 
 <div class="form-group">
+    <label>Цена</label>
+    <input name="price" type="text" class="form-control" value="{{ $category->price ?? "" }}" placeholder="Цена">
+</div>
+
+<div class="form-group">
     <label>Полный текст описания</label>
     <textarea class="form-control" placeholder="Описание" name="full_description">{{ $category->full_description ?? "" }}</textarea>
+</div>
+
+<div class="form-group">
+    <label>Сео заголовок</label>
+    <input name="seo_title" type="text" class="form-control" value="{{ $category->seo_title ?? "" }}" placeholder="Сео заголовок">
 </div>
 
 <div class="form-group">
@@ -44,12 +54,13 @@
 
 <div class="form-group">
     <label>Мета заголовок</label>
-    <input name="meta_title" type="text" class="form-control" value="{{ $category->meta_title ?? "" }}" placeholder="Мета заголовок" required>
+    <input name="meta_title" type="text" class="form-control" value="{{ $category->meta_title ?? "" }}" placeholder="Мета заголовок">
 </div>
 <div class="form-group">
     <label>Мета описание</label>
-    <input name="meta_description" type="text" class="form-control" value="{{ $category->meta_description ?? "" }}" placeholder="Мета описание" required>
+    <input name="meta_description" type="text" class="form-control" value="{{ $category->meta_description ?? "" }}" placeholder="Мета описание">
 </div>
+
 
 
 

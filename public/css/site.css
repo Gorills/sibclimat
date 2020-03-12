@@ -179,7 +179,6 @@ p {
   display: flex;
   flex-wrap: wrap;
   padding: 0.75rem 1rem;
-  margin-bottom: 1rem;
   margin-top: 0;
   list-style: none;
 }
@@ -645,14 +644,14 @@ p {
 .posadochnaya__inner {
   width: 100%;
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 0;
 }
 
 .posadochnaya__title {
   text-align: center;
   text-transform: uppercase;
-  font-size: 38px;
-  margin-bottom: 20px;
+  font-size: 28px;
+  margin-bottom: 40px;
 }
 
 .posadochnaya__text {
@@ -716,6 +715,47 @@ p {
 
 .posadochnaya__btn {
   opacity: 0;
+}
+
+.posadochnaya__tovar-img-block {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.posadochnaya__tovar-img {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.posadochnaya__tovar-title {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.posadochnaya__tovar-description {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.posadochnaya__tovar-price {
+  text-align: center;
+  font-weight: 700;
+  color: #ff151f;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.posadochnaya__tovar-button {
+  width: 100%;
+  text-align: center;
 }
 
 .section-opt {

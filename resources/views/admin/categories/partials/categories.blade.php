@@ -15,7 +15,7 @@
 
     @endisset
     >
-        {!! $delimiter ?? "" !!}{{$category_list->title ?? ""}}
+        {!! $delimiter ?? '' ?? "" !!}{{$category_list->title ?? ""}}
 
 
     </option>
@@ -23,7 +23,7 @@
     @if (count($category_list->children) > 0)
         @include('admin.categories.partials.categories', [
             'categories' => $category_list->children,
-            'delimiter' => ' - ' . $delimiter
+            'delimiter' => ' - ' . $delimiter ?? ''
 
         ])
 

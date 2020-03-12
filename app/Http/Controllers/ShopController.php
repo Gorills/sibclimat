@@ -15,11 +15,13 @@ class ShopController extends Controller
         return view('category', [
 
             'category' => $category,
-            'categories' => Category::with('children')->get()
-
+            'categories' => Category::with('children')->get(),
+            'parents' => Category::with('children')->where('parent_id', 0)->first()
         ]);
 
     }
+
+
 
 
 }

@@ -11,7 +11,7 @@ class Category extends Model
 
     protected $fillable = ['title', 'description_short','description','image', 'slug', 'created_by', 'modified_by', 'parent_id',
 
-        'text_one', 'text_two', 'text_three', 'meta_title', 'meta_description'
+        'text_one', 'text_two', 'text_three', 'meta_title', 'meta_description', 'price', 'seo_title'
 
         ];
 

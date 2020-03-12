@@ -17,16 +17,19 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->integer('parent_id')->nullable();
             $table->string('title');
-            $table->string('slug')->unique();
-//            $table->string('price')->nullable();
+            $table->string('slug')->nullable();
+
             $table->text('description_short')->nullable();
             $table->text('description')->nullable();
+            $table->string('seo_title')->nullable();
             $table->text('text_one')->nullable();
             $table->text('text_two')->nullable();
             $table->text('text_three')->nullable();
             $table->string('image')->nullable();
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
+            $table->string('price')->nullable();
+
             $table->timestamps();
         });
     }
