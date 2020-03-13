@@ -19,12 +19,12 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Главная</a></li>
 
-                @if($category->parent_id == 0)
+{{--                @if($category->parent_id == 0)--}}
 
-                @else
-                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ Redirect::back()->getTargetUrl() }}">{{ $parents->title ?? "" }}</a></li>
+{{--                @else--}}
+{{--                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ url("/category/$parents->slug") }}">{{ $parents->title ?? "" }}</a></li>--}}
 
-                @endif
+{{--                @endif--}}
 
                     <li class="breadcrumb-item active" aria-current="page">{{ $category->title }}</li>
                 </ol>

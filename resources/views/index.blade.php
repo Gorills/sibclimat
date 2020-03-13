@@ -25,7 +25,7 @@
                 <div class="slider__inner">
                     <h2 class="slider__title">{{ $stock->title }}</h2>
                     <div class="slider__text">{{ $stock->description }}</div>
-                    <a href="#" class="slider__btn btn btn__accent">Подробнее</a>
+{{--                    <a href="#" class="slider__btn btn btn__accent">Подробнее</a>--}}
                 </div>
             </div>
         </div>
@@ -34,9 +34,9 @@
             <div class="slider__bcg">
                 <img class="slider__image" src="{{ asset('images/uslugi/slide-1.jpg') }}" alt="">
                 <div class="slider__inner">
-                    <h2 class="slider__title">Стандартный слайд</h2>
+                    <h1 class="slider__title">Стандартный слайд</h1>
                     <div class="slider__text">Стандартное описание</div>
-                    <a href="#" class="slider__btn btn btn__accent">Подробнее</a>
+{{--                    <a href="#" class="slider__btn btn btn__accent">Подробнее</a>--}}
                 </div>
             </div>
         </div>

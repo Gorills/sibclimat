@@ -34,6 +34,7 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware' => ['auth']]
 
 Route::get('/', 'IndexController@index');
 Route::get('/works', 'WorksController@index')->name('works');
+Route::get('/contacts', 'WorksController@contacts')->name('contacts');
 
 
 
@@ -48,9 +49,10 @@ Route::get('/works', 'WorksController@index')->name('works');
 //});
 
 
-Route::get('/contacts', function () {
-    return view('contacts');
-});
+//
+//Route::get('/catalog', function () {
+//    return view('catalog');
+//});
 
 Auth::routes();
 

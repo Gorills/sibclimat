@@ -16,7 +16,8 @@ class ShopController extends Controller
 
             'category' => $category,
             'categories' => Category::with('children')->get(),
-            'parents' => Category::with('children')->where('parent_id', 0)->first()
+//            'parents' => Category::with('children')->where('parent_id', 0)->find(),
+            'footers' => Category::with('children')->where('parent_id', 0)->get()
         ]);
 
     }
