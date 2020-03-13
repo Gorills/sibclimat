@@ -7,18 +7,164 @@
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px)
-/**/
+
+
+    .toggle-menu
+        display: block
+
+
+    .header
+        position: fixed
+        display: flex
+        align-items: center
+        justify-content: center
+        top: 0
+        left: -100%
+        right: 0
+        bottom: 0
+        // header__inner
+        &__inner
+            flex-direction: column
+
+        //  header__logo-link
+        &__logo-link
+            display: block
+
+        // header__logo
+        &__logo
+            margin-bottom: 20px
+        // header__nav
+        &__nav
+            flex-direction: column
+            margin-bottom: 20px
+        // header__link
+        &__link::after
+            top: 25px
+
+            &:hover::after
+                width: 100%
+        &__link + &__link
+            margin-top: 25px
+            margin-left: 0
+            transition: $transition
+        // header__social
+        &__social
+            justify-content: center
+        // header__social-item
+        &__social-item
+            display: flex
+            align-items: center
+        &__social-item + &__social-item
+            margin-left: 15px
+        // header__social-icon
+        &__social-icon
+            width: 40px
+            height: 40px
+            border-radius: 100%
+            display: flex
+            align-items: center
+            justify-content: center
+            color: #fff
+            text-decoration: none
+            i
+                padding-top: 3px
+
+        // header__social-label
+        &__social-label
+            font-size: 11px
+            color: #333
+            margin-left: 5px
+
+        // header__active-header
+        &__active-header
+            left: 0
+
+
+    // slider__bcg
+    .slider__bcg
+        height: 100vh
+    // slider__image
+    .slider__image
+        height: 100vh
+
+
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px)
 
-/**/
+    // catalog__grid
+    .catalog__grid
+        grid-template-columns: 1fr 1fr
+
+    // works__grid
+    .works__grid
+        grid-template-columns: 1fr 1fr
+
+    // posadochnaya__grid
+    .posadochnaya__grid
+        grid-template-columns: 1fr 1fr
+
+
+    // .footer__inner
+    .footer__inner
+        flex-direction: column
+
+
+    // .footer__contacts
+    .footer__contacts
+        text-align: center
+        margin-bottom: 40px
+
+    // .footer__submenu
+    .footer__submenu
+        text-align: center
+        margin-top: 40px
+
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px)
 
+    // slider__inner
+    .slider__inner
+        top: 50%
+        left: 0
+        right: 0
+        transform: translateY(-50%)
 
-/**/
+    // posadochnaya__grid
+    .posadochnaya__grid
+        grid-template-columns: 1fr
 
+    // catalog__grid
+    .catalog__grid
+        grid-template-columns: 1fr
+
+    // works__grid
+    .works__grid
+        grid-template-columns: 1fr
+    // works__item
+    .works__item
+        margin-bottom: 20px
+    // works__item-title
+    .works__item-title
+        text-align: center
+    // works__item-text
+    .works__item-text
+        text-align: center
+
+    // section__title
+    .section__title
+        text-align: center
+        font-size: 28px
+    // works__title
+    .works__title
+        text-align: center
+        font-size: 28px
+    // slider__title
+    .slider__title
+        font-size: 28px
+    // posadochnaya__title
+    .posadochnaya__title
+        font-size: 28px
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 320px)
 

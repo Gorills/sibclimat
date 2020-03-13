@@ -86,13 +86,15 @@
                     <p class="header__social-label">Заказать звонок</p>
                 </div>
 
-{{--                <div class="toggle-menu" id="menu">--}}
-{{--                    <div class="toggle-section">--}}
-{{--                        <a href="#" class="menu-btn">--}}
-{{--                            <span></span>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                <div class="toggle-menu" id="menu">
+                    <div class="toggle-section">
+                        МЕНЮ
+                        <a href="#" class="menu-btn">
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -123,10 +125,10 @@
             </nav>
             <div class="footer__submenu">
                 <p class="footer__title">Услуги</p>
-                <a class="footer__links" href="#">Кондиционеры</a>
-                <a class="footer__links" href="#">Вентиляция</a>
-                <a class="footer__links" href="#">Тепловое оборудование</a>
-                <a class="footer__links" href="#">Климатические системы</a>
+
+                @foreach($footers as $foot)
+                    <a class="footer__links" href="{{ url("/category/$foot->slug") }}">{{ $foot->title }}</a>
+                @endforeach
 
 
             </div>
@@ -141,7 +143,7 @@
     $(".menu-btn").click(function(e) {
         e.preventDefault();
         $(this).toggleClass('menu-btn_active');
-        $(".header-bottom").toggleClass('header-bottom_active');
+        $(".header").toggleClass('header__active-header');
 
     })
     // $(".header__link").click(function(e) {
@@ -152,6 +154,12 @@
     //
     //
     $(".header__social-icon").click(function(e) {
+        e.preventDefault();
+        $(".popup").toggleClass('popup_active');
+
+    })
+
+    $(".contacts__btn").click(function(e) {
         e.preventDefault();
         $(".popup").toggleClass('popup_active');
 
